@@ -1,6 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 
 def index(request):
-	return HttpResponse("Rango says hey there world!")
+	return render(request, 'rango/index.html')
+
+def about(request):
+	return render(request, 'rango/about.html')
