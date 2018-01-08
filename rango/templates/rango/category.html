@@ -1,0 +1,10 @@
+{{ category }}
+{% if pages %}
+	<ul>
+		{% for page in pages %}
+		<li>{{ page.title }}</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<b>There are no pages present.</b>
+{% endif %}
