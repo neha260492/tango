@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.template.defaultfilters import slugify
 # Create your models here.
 
 class Category(models.Model):
@@ -7,6 +8,11 @@ class Category(models.Model):
 	views = models.IntegerField(default=0)
 	likes = models.IntegerField(default=0)
 	pub_date = models.DateTimeField('date published', default=timezone.now)
+	slug = models.SlugField()
+
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.name)
+		super(Category, self).save(*args, **kwargs)
 
 	def __str__(self):
 		return self.name
