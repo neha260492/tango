@@ -2,6 +2,7 @@
 <h4>This is index page.</h4>
 <i>{{ italicmessage }}</i>
 {% if categories %}
+	<h3>Categories:</h3>
 	<ul>
 		{% for category in categories %}
 		<li><a href='/rango/category/{{ category.slug }}'>{{ category.name }}</a></li>
@@ -9,6 +10,14 @@
 	</ul>
 {% else %}
 	<b>There are no categories present.</b>
+{% endif %}
+{% if pages %}
+	<h3>Top {{ pages|length }} pages:</h3>
+	<ul>
+		{% for page in pages %}
+		<li>{{ page.title }}</li>
+		{% endfor %}
+	</ul>
 {% endif %}
 <br/> <a href='/rango/about'>About</a>
 

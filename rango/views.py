@@ -5,8 +5,10 @@ from .models import Category, Page
 
 def index(request):
 	categories = Category.objects.order_by('name')
+	pages = Page.objects.order_by('-views')
 	context = { 'italicmessage': 'I am italic!',
-				'categories': categories }
+				'categories': categories,
+			    'pages': pages }
 	return render(request, 'rango/index.html', context)
 
 def about(request):
