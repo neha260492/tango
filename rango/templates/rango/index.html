@@ -1,4 +1,14 @@
 <h3>Rango says: Hello world!</h3>
 <h4>This is index page.</h4>
 <i>{{ italicmessage }}</i>
+{% if categories %}
+	<ul>
+		{% for category in categories %}
+		<li>{{ category.name }}</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<b>There are no categories present.</b>
+{% endif %}
 <br/> <a href='/rango/about'>About</a>
+
